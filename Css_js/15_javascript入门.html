@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>javascript入门</title>
+		<script>
+			function checkUserName(){
+				/*用户名的校验规则:由4-14位的数字或者字母组成*/
+				//document.getElementById("id属性值")获取标签对象
+				var username = document.getElementById("username");
+				//获取内容
+				username = username.value;
+				//定义一个正则规则
+				var reg = /^[0-9a-zA-Z]{4,14}$/i;
+				//使用正则校验获取username
+				if(!reg.test(username)){
+					alert("用户名格式不正确");
+					return false;
+				}
+				return true;
+			}
+		</script>
+	</head>
+	<body>
+		<!--onsubmit事件：表示表单提交是否成功
+			
+			 返回true：可以提交
+			 false，提交失败
+		-->	
+		<form action="backend.html" method="post" onsubmit="return checkUserName()">
+			用户名：<input type="text" id="username" name="name"/><br/>
+			<input type="submit" value="注册" />
+		</form>
+	</body>
+</html>
